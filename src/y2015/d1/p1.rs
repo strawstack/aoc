@@ -1,4 +1,5 @@
 #[allow(dead_code)]
 pub fn main(input: &str) {
-    println!("p1.rs: {}", input.chars().count());
+    let ans: i32 = input.chars().fold(0, |acc, x| if x == '(' { acc + 1 } else { acc - 1 });
+    println!("{}", ans);
 }

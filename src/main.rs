@@ -1,5 +1,5 @@
 use std::env;
-
+use std::fs;
 mod y2015;
 mod y2016;
 mod y2017;
@@ -17,7 +17,7 @@ fn main() {
         args[3].parse().unwrap()
     );
 
-    let s : &str = "input";
+    let s : &str = &fs::read_to_string(format!("src/data/y{}/d{}/input.txt", year, day)).expect("Read string fails.");
     
     match year {
         2015 => {

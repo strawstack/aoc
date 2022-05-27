@@ -2,7 +2,7 @@
 
 ## Run this project
 
-The command below runs the solution for the given day: 
+The command below runs the solution for the given year, day, and part: 
 
 `cargo run YEAR DAY PART`
 

@@ -52,7 +52,7 @@ fn parse_line(re: &Regex, line: &str) -> Op {
 }
 
 #[allow(dead_code)]
-pub fn main(input: &str) {
+pub fn main(input: &str) -> i32 {
     let mut grid: HashMap<(i32, i32), i32> = HashMap::new();
     let re = Regex::new(r" |,").unwrap();
     for line in input.lines() {
@@ -87,4 +87,5 @@ pub fn main(input: &str) {
     }
     
     println!("{}", total);
+    total
 }

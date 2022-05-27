@@ -1,7 +1,7 @@
 use std::cmp::min;
 
 #[allow(dead_code)]
-pub fn main(input: &str) {
+pub fn main(input: &str) -> i32 {
     let lst: Vec<Vec<i32>> = input
         .lines()
         .map(|x| x.split('x').map(|y| y.parse().unwrap()).collect())
@@ -22,4 +22,5 @@ pub fn main(input: &str) {
     }
 
     println!("{}", total);
+    total
 }

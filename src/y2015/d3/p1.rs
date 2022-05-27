@@ -13,7 +13,7 @@ enum Dir {
 }
 
 #[allow(dead_code)]
-pub fn main(input: &str) {
+pub fn main(input: &str) -> i32 {
 
     let input: Vec<Dir> = input.chars().map(|x| {
         match x {
@@ -42,5 +42,5 @@ pub fn main(input: &str) {
     }
 
     println!("{}", hm.len());
-
+    hm.len() as i32
 }

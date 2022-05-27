@@ -52,7 +52,7 @@ fn parse_line(re: &Regex, line: &str) -> Op {
 }
 
 #[allow(dead_code)]
-pub fn main(input: &str) {
+pub fn main(input: &str) -> i32 {
     let mut grid: HashSet<(i32, i32)> = HashSet::new();
     let re = Regex::new(r" |,").unwrap();
     for line in input.lines() {
@@ -78,6 +78,6 @@ pub fn main(input: &str) {
         }
     }
     
-    println!("{}", grid.len());  
-
+    println!("{}", grid.len());
+    grid.len().try_into().unwrap() 
 }

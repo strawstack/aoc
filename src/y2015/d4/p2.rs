@@ -1,5 +1,5 @@
 #[allow(dead_code)]
-pub fn main(input: &str) {
+pub fn main(input: &str) -> i32 {
 
     let mut nonce: i32 = 1;
         
@@ -11,7 +11,7 @@ pub fn main(input: &str) {
 
         if slice == "000000" {
             println!("{}", nonce);
-            break;
+            return nonce; 
         }
 
         nonce += 1;

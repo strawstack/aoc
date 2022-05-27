@@ -15,7 +15,8 @@ fn sol(input: &str) -> i32 {
 }
 
 #[allow(dead_code)]
-pub fn main(input: &str) {
+pub fn main(input: &str) -> i32 {
     let ans: i32 = sol(input) + 1;
     println!("{}", ans);
+    ans
 }

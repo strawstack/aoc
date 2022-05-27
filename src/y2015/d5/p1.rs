@@ -27,7 +27,7 @@ fn check_word(word: &str) -> bool {
 }
 
 #[allow(dead_code)]
-pub fn main(input: &str) {
+pub fn main(input: &str) -> i32 {
 
     let input = input.lines();
     let mut count: i32 = 0;
@@ -38,4 +38,5 @@ pub fn main(input: &str) {
     }
 
     println!("{}", count);
+    count
 }

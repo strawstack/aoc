@@ -1,5 +1,5 @@
 use std::env;
-use std::fs;
+mod data;
 mod y2015;
 mod y2016;
 mod y2017;
@@ -17,8 +17,7 @@ fn main() {
         args[3].parse().unwrap(),
     );
 
-    let s: &str = &fs::read_to_string(format!("src/data/y{}/d{}/input.txt", year, day))
-        .expect("Read string fails.");
+    let s: &str = &data::get(year, day);
 
     match year {
         2015 => {
@@ -2890,3 +2889,94 @@ fn main() {
         }
     }
 }
+
+#[cfg(test)]
+mod test {
+    use super::*;
+
+    #[test]
+    fn y2015_d1_p1() {
+        let s: &str = &data::get(2015, 1);
+        assert_eq!(y2015::d1::p1::main(s), 232);
+    }
+
+    #[test]
+    fn y2015_d1_p2() {
+        let s: &str = &data::get(2015, 1);
+        assert_eq!(y2015::d1::p2::main(s), 1783);
+    }
+
+    #[test]
+    fn y2015_d2_p1() {
+        let s: &str = &data::get(2015, 2);
+        assert_eq!(y2015::d2::p1::main(s), 1606483);
+    }
+
+    #[test]
+    fn y2015_d2_p2() {
+        let s: &str = &data::get(2015, 2);
+        assert_eq!(y2015::d2::p2::main(s), 3842356);
+    }
+
+    #[test]
+    fn y2015_d3_p1() {
+        let s: &str = &data::get(2015, 3);
+        assert_eq!(y2015::d3::p1::main(s), 2081);
+    }
+
+    #[test]
+    fn y2015_d3_p2() {
+        let s: &str = &data::get(2015, 3);
+        assert_eq!(y2015::d3::p2::main(s), 2341);
+    }
+
+    #[test]
+    fn y2015_d4_p1() {
+        let s: &str = &data::get(2015, 4);
+        assert_eq!(y2015::d4::p1::main(s), 254575);
+    }
+
+    #[test]
+    fn y2015_d4_p2() {
+        let s: &str = &data::get(2015, 4);
+        assert_eq!(y2015::d4::p2::main(s), 1038736);
+    }
+
+    #[test]
+    fn y2015_d5_p1() {
+        let s: &str = &data::get(2015, 5);
+        assert_eq!(y2015::d5::p1::main(s), 238);
+    }
+
+    #[test]
+    fn y2015_d5_p2() {
+        let s: &str = &data::get(2015, 5);
+        assert_eq!(y2015::d5::p2::main(s), 69);
+    }
+
+    #[test]
+    fn y2015_d6_p1() {
+        let s: &str = &data::get(2015, 6);
+        assert_eq!(y2015::d6::p1::main(s), 377891);
+    }
+
+    #[test]
+    fn y2015_d6_p2() {
+        let s: &str = &data::get(2015, 6);
+        assert_eq!(y2015::d6::p2::main(s), 14110788);
+    }
+
+    #[test]
+    fn y2015_d7_p1() {
+        let s: &str = &data::get(2015, 7);
+        assert_eq!(y2015::d7::p1::main(s), 3176);
+    }
+
+    #[test]
+    fn y2015_d7_p2() {
+        let s: &str = &data::get(2015, 7);
+        assert_eq!(y2015::d7::p2::main(s), 14710);
+    }
+
+}
+

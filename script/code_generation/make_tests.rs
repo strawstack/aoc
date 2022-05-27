@@ -34,7 +34,7 @@ fn main() {
     answers.insert((2015, 7, 1), 3176);
     answers.insert((2015, 7, 2), 14710);
 
-    for y in 2015..2016 {
+    for y in 2015..=2022 {
         for d in 1..=25 {
             for p in 1..=2 {
                 let entry = answers.entry((y, d, p));

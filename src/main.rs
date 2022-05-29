@@ -2977,6 +2977,4 @@ mod test {
         let s: &str = &data::get(2015, 7);
         assert_eq!(y2015::d7::p2::main(s), 14710);
     }
-
 }
-

@@ -6,4 +6,3 @@ pub fn main(input: &str) -> i32 {
     println!("{}", ans);
     ans
 }
-

@@ -1,7 +1,6 @@
 use std::collections::HashMap;
 
 fn check_word(word: &str) -> bool {
-
     let mut xyx = false;
     let mut pair = false;
     let len: i32 = word.chars().count() as i32;
@@ -10,7 +9,8 @@ fn check_word(word: &str) -> bool {
 
     for i in 0..len {
         if i < len - 2 {
-            if word.chars().nth(i as usize).unwrap() == word.chars().nth((i + 2) as usize).unwrap() {
+            if word.chars().nth(i as usize).unwrap() == word.chars().nth((i + 2) as usize).unwrap()
+            {
                 xyx = true;
             }
         }
@@ -23,7 +23,7 @@ fn check_word(word: &str) -> bool {
         }
     }
     xyx && pair
-} 
+}
 
 #[allow(dead_code)]
 pub fn main(input: &str) -> i32 {

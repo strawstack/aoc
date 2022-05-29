@@ -15,39 +15,31 @@ struct Point(i32, i32);
 struct Op {
     cmd: Cmd,
     from: Point,
-    to: Point,  
+    to: Point,
 }
 
 fn parse_line(re: &Regex, line: &str) -> Op {
     let items: Vec<&str> = re.split(line).collect();
     match items[0] {
-        "toggle" => {
-            Op {
-                cmd: Cmd::Toggle,
-                from: Point(items[1].parse().unwrap(), items[2].parse().unwrap()),
-                to: Point(items[4].parse().unwrap(), items[5].parse().unwrap()),
-            }
+        "toggle" => Op {
+            cmd: Cmd::Toggle,
+            from: Point(items[1].parse().unwrap(), items[2].parse().unwrap()),
+            to: Point(items[4].parse().unwrap(), items[5].parse().unwrap()),
         },
-        "turn" => {
-            match items[1] {
-                "on" => {
-                    Op {
-                        cmd: Cmd::On,
-                        from: Point(items[2].parse().unwrap(), items[3].parse().unwrap()),
-                        to: Point(items[5].parse().unwrap(), items[6].parse().unwrap()),
-                    }
-                },
-                "off" => {
-                    Op {
-                        cmd: Cmd::Off,
-                        from: Point(items[2].parse().unwrap(), items[3].parse().unwrap()),
-                        to: Point(items[5].parse().unwrap(), items[6].parse().unwrap()),
-                    }
-                },
-                _ => panic!("Invalid command type.")
-            }   
+        "turn" => match items[1] {
+            "on" => Op {
+                cmd: Cmd::On,
+                from: Point(items[2].parse().unwrap(), items[3].parse().unwrap()),
+                to: Point(items[5].parse().unwrap(), items[6].parse().unwrap()),
+            },
+            "off" => Op {
+                cmd: Cmd::Off,
+                from: Point(items[2].parse().unwrap(), items[3].parse().unwrap()),
+                to: Point(items[5].parse().unwrap(), items[6].parse().unwrap()),
+            },
+            _ => panic!("Invalid command type."),
         },
-        _ => panic!("Invalid command name.")
+        _ => panic!("Invalid command name."),
     }
 }
 
@@ -63,11 +55,11 @@ pub fn main(input: &str) -> i32 {
                     Cmd::Toggle => {
                         let value = grid.entry((r, c)).or_insert(0);
                         *value += 2;
-                    },
+                    }
                     Cmd::On => {
                         let value = grid.entry((r, c)).or_insert(0);
                         *value += 1;
-                    },
+                    }
                     Cmd::Off => {
                         let value = grid.entry((r, c)).or_insert(0);
                         *value -= 1;
@@ -75,17 +67,16 @@ pub fn main(input: &str) -> i32 {
                             *value = 0;
                         }
                     }
-                }       
+                }
             }
         }
     }
-    
 
     let mut total: i32 = 0;
     for (_, bright) in grid {
         total += bright;
     }
-    
+
     println!("{}", total);
     total
 }

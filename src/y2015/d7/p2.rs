@@ -188,6 +188,11 @@ pub fn main(input: &str) -> i32 {
 
     let ch: Rc<Mutex<Cache>> = Rc::new(Mutex::new(HashMap::new()));
 
+    {
+        let mut cm = ch.lock().unwrap();
+        cm.insert("b", 3176);
+    }
+
     let ans: i32 = compute_wire(&hm, ch, "a").into();
     println!("{:?}", ans);
     ans
